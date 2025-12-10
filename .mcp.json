@@ -1,0 +1,52 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github",
+        "--toolsets",
+        "repos,issues,pull_requests"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "azure": {
+      "command": "azmcp",
+      "args": [
+        "server",
+        "start",
+        "--transport",
+        "stdio",
+        "--mode",
+        "namespace",
+        "--namespaces",
+        "subscription,group,storage,appservice,functionapp,sql,postgres,appconfig"
+      ],
+      "env": {
+        "AZURE_SUBSCRIPTION_ID": "${AZURE_SUBSCRIPTION_ID}",
+        "AZURE_TENANT_ID": "${AZURE_TENANT_ID}"
+      }
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ],
+      "tools": {
+        "enabled": [
+          "browser_navigate",
+          "browser_snapshot",
+          "browser_click",
+          "browser_type",
+          "browser_wait_for",
+          "browser_console_messages",
+          "browser_network_requests"
+        ]
+      }
+    }
+  }
+}
+
